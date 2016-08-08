@@ -1,8 +1,24 @@
 sudo: false
+
+cache:
+  directories:
+    - ~/.cache.pip
+
 language: python
+
 python:
-    - "2.7"
-    - "3.5"
-    - "pypy"
-install: pip install tox-travis
-script: tox
+  - 2.7
+  - 3.5
+  - pypy
+  - pypy3
+
+install:
+  - pip install -e .\[dev\]
+
+script:
+  - flake8 click_aliases examples tests setup.py -v --show-source
+  - py.test tests --cov click_aliases --cov-report term-missing
+
+after_success:
+  - coveralls
+

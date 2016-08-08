@@ -57,6 +57,8 @@ class ClickAliasedGroup(click.Group):
             cmd = self.get_command(ctx, sub_command)
             if cmd is None:
                 continue
+            if hasattr(cmd, 'hidden') and cmd.hidden:
+                continue
             if sub_command in self._commands:
                 aliases = ','.join(sorted(self._commands[sub_command]))
                 sub_command = '{0} ({1})'.format(sub_command, aliases)

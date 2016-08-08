@@ -14,7 +14,7 @@ def cli():
     pass
 
 
-@cli.command(aliases=['bar'])
+@cli.command()
 def foo():
     click.echo('foo')
 
@@ -25,7 +25,7 @@ Options:
   --help  Show this message and exit.
 
 Commands:
-  foo (bar)
+  foo
 """
 
 
@@ -35,17 +35,16 @@ def test_help(runner):
 
 
 def test_foobar(runner):
-    for cmd in ['foo', 'bar']:
-        result = runner.invoke(cli, [cmd])
-        assert result.output == 'foo\n'
+    result = runner.invoke(cli, ['foo'])
+    assert result.output == 'foo\n'
 
 
 TEST_INVALID = """Usage: cli [OPTIONS] COMMAND [ARGS]...
 
-Error: No such command "baz".
+Error: No such command "bar".
 """
 
 
 def test_invalid(runner):
-    result = runner.invoke(cli, ['baz'])
+    result = runner.invoke(cli, ['bar'])
     assert result.output == TEST_INVALID

@@ -1,8 +1,7 @@
 import click
-import pytest
 from click.testing import CliRunner
-
 from click_aliases import ClickAliasedGroup
+import pytest
 
 
 @pytest.fixture(scope="function")
@@ -110,8 +109,8 @@ def test_ship_help(runner):
 
 
 def test_ship_move(runner):
+    TEST = 'Moving ship mcboat to 1.0,1.0 with speed 10\n'
     for cmd in ['ship', 'boat']:
         for subcmd in ['move', 'float', 'navigate']:
             result = runner.invoke(cli, [cmd, subcmd, 'mcboat', "1", "1"])
-            assert result.output == 'Moving ship mcboat to 1.0,1.0 with speed 10\n'
-
+            assert result.output == TEST

@@ -5,3 +5,6 @@ __pycache__/
 .cache/
 *.egg-info/
 env/
+.cache/*
+.coverage
+.tox/
