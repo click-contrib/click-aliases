@@ -12,7 +12,7 @@ setup(
     long_description=readme,
     author='Robbin Bonthond',
     author_email='robbin@bonthond.com',
-    url='https://github.com/rbonthond/click-aliases',
+    url='https://github.com/click-contrib/click-aliases',
     license='MIT',
     packages=['click_aliases'],
     install_requires=[

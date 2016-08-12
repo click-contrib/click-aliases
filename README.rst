@@ -40,14 +40,14 @@ Will result in:
 
 .. _click: http://click.pocoo.org/
 
-.. |build|  image:: https://travis-ci.org/rbonthond/click-aliases.svg?branch=master
-    :target: https://travis-ci.org/rbonthond/click-aliases
+.. |build|  image:: https://travis-ci.org/click-contrib/click-aliases.svg?branch=master
+    :target: https://travis-ci.org/click-contrib/click-aliases
     :alt: Build status of the master branch
 
 .. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-    :target: https://raw.githubusercontent.com/rbonthond/click-aliases/master/LICENSE
+    :target: https://raw.githubusercontent.com/click-contrib/click-aliases/master/LICENSE
     :alt: Package license
 
-.. |coverage| image:: https://coveralls.io/repos/github/rbonthond/click-aliases/badge.svg?branch=master
-    :target: https://coveralls.io/github/rbonthond/click-aliases?branch=master
+.. |coverage| image:: https://coveralls.io/repos/github/click-contrib/click-aliases/badge.svg?branch=master
+    :target: https://coveralls.io/github/click-contrib/click-aliases?branch=master
     :alt: Coverage report
