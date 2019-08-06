@@ -1,6 +1,8 @@
 import click
 from click.testing import CliRunner
+
 from click_aliases import ClickAliasedGroup
+
 import pytest
 
 

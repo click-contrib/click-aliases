@@ -5,6 +5,8 @@
 
 import click
 
+_click7 = click.__version__[0] >= '7'
+
 
 class ClickAliasedGroup(click.Group):
     def __init__(self, *args, **kwargs):
@@ -53,7 +55,13 @@ class ClickAliasedGroup(click.Group):
 
     def format_commands(self, ctx, formatter):
         rows = []
-        for sub_command in self.list_commands(ctx):
+
+        sub_commands = self.list_commands(ctx)
+
+        max_len = max(len(cmd) for cmd in sub_commands)
+        limit = formatter.width - 6 - max_len
+
+        for sub_command in sub_commands:
             cmd = self.get_command(ctx, sub_command)
             if cmd is None:
                 continue
@@ -62,8 +70,12 @@ class ClickAliasedGroup(click.Group):
             if sub_command in self._commands:
                 aliases = ','.join(sorted(self._commands[sub_command]))
                 sub_command = '{0} ({1})'.format(sub_command, aliases)
-            cmd_help = cmd.short_help or ''
+            if _click7:
+                cmd_help = cmd.get_short_help_str(limit)
+            else:
+                cmd_help = cmd.short_help or ''
             rows.append((sub_command, cmd_help))
+
         if rows:
             with formatter.section('Commands'):
                 formatter.write_dl(rows)

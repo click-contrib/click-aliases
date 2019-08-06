@@ -18,6 +18,8 @@ install:
 script:
   - flake8 click_aliases examples tests setup.py -v --show-source
   - py.test tests --cov click_aliases --cov-report term-missing
+  - pip install 'click>6,<7'
+  - py.test tests --cov click_aliases --cov-report term-missing --cov-append
 
 after_success:
   - coveralls
