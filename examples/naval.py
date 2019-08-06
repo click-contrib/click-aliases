@@ -1,4 +1,5 @@
 import click
+
 from click_aliases import ClickAliasedGroup
 
 
