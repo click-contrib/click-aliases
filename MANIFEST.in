@@ -1,0 +1,13 @@
+global-exclude *.py[cdo] __pycache__ *.so *.pyd
+
+include LICENSE
+include README.md
+
+include setup.py
+
+recursive-include tests *.py
+
+recursive-exclude _* *.*
+recursive-exclude .git *.*
+recursive-exclude .tox *.*
+recursive-exclude .venv* *.*
