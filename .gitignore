@@ -8,3 +8,5 @@ env/
 .cache/*
 .coverage
 .tox/
+build/
+dist/

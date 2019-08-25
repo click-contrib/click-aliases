@@ -46,9 +46,13 @@ class ClickAliasedGroup(click.Group):
 
         return _decorator
 
-    def get_command(self, ctx, cmd_name):
+    def resolve_alias(self, cmd_name):
         if cmd_name in self._aliases:
-            cmd_name = self._aliases[cmd_name]
+            return self._aliases[cmd_name]
+        return cmd_name
+
+    def get_command(self, ctx, cmd_name):
+        cmd_name = self.resolve_alias(cmd_name)
         command = super(ClickAliasedGroup, self).get_command(ctx, cmd_name)
         if command:
             return command
