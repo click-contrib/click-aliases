@@ -22,6 +22,8 @@ script:
   - py.test tests --cov click_aliases --cov-report term-missing
   - pip install 'click>6,<7'
   - py.test tests --cov click_aliases --cov-report term-missing --cov-append
+  - pip install 'click>5,<6'
+  - py.test tests --cov click_aliases --cov-report term-missing --cov-append
 
 after_success:
   - coveralls
