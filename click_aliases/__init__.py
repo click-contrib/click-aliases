@@ -14,6 +14,20 @@ class ClickAliasedGroup(click.Group):
         self._commands = {}
         self._aliases = {}
 
+    def add_command(self, *args, **kwargs):
+        aliases = kwargs.pop('aliases', [])
+        super(ClickAliasedGroup, self).add_command(*args, **kwargs)
+        if aliases:
+            cmd = args[0]
+            name = args[1] if len(args) > 1 else None
+            name = name or cmd.name
+            if name is None:
+                raise TypeError('Command has no name.')
+
+            self._commands[name] = aliases
+            for alias in aliases:
+                self._aliases[alias] = cmd.name
+
     def command(self, *args, **kwargs):
         aliases = kwargs.pop('aliases', [])
         decorator = super(ClickAliasedGroup, self).command(*args, **kwargs)
