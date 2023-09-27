@@ -1,14 +1,15 @@
+
 [tool.poetry]
 name = "click-aliases"
-version = "1.1.2"
+version = "1.0.2"
 description = "Add (mutiple) aliases to a click group or command"
-authors = ["Robbin Bonthond <robbin@bonthondcom>"]
+authors = ["Robbin Bonthond <robbin@bonthond.com>"]
 readme = "README.md"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 click = "^8.1.7"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
@@ -16,6 +17,8 @@ ruff = "^0.0.291"
 black = "^23.9.1"
 tox = "^4.11.3"
 isort = "^5.12.0"
+build = "^1.0.3"
+twine = "^4.0.2"
 
 [build-system]
 requires = ["poetry-core"]
