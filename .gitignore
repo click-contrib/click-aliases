@@ -10,3 +10,7 @@ env/
 .tox/
 build/
 dist/
+.venv/
+.ruff_cache/
+.pytest_cache/
+.envrc

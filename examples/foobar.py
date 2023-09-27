@@ -8,10 +8,10 @@ def cli():
     pass
 
 
-@cli.command(aliases=['bar', 'baz', 'qux'])
+@cli.command(aliases=["bar", "baz", "qux"])
 def foo():
     """Run a command."""
-    click.echo('foo')
+    click.echo("foo")
 
 
 if __name__ == "__main__":
