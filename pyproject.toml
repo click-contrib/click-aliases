@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "click-aliases"
-version = "1.0.3"
+version = "1.0.4"
 description = "Add (mutiple) aliases to a click group or command"
 authors = ["Robbin Bonthond <robbin@bonthond.com>"]
 readme = "README.md"
