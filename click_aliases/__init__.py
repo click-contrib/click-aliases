@@ -26,7 +26,7 @@ class ClickAliasedGroup(click.Group):
 
             self._commands[name] = aliases
             for alias in aliases:
-                self._aliases[alias] = cmd.name
+                self._aliases[alias] = name
 
     def command(self, *args, **kwargs):
         aliases = kwargs.pop("aliases", [])
