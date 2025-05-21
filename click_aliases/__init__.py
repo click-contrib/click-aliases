@@ -18,11 +18,11 @@ class ClickAliasedGroup(click.Group):
 
     def add_command(self, *args: t.Any, **kwargs: t.Any) -> None:
         aliases = kwargs.pop("aliases", [])
-        name = kwargs.get("name")
         super().add_command(*args, **kwargs)
         if aliases:
             cmd = args[0]
-            name = name or (args[1] if len(args) > 1 else None) or cmd.name
+            name = args[1] if len(args) > 1 else None
+            name = name or cmd.name
             if name is None:
                 raise TypeError("Command has no name.")
 
