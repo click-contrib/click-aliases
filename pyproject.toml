@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "click-aliases"
-version = "1.0.6"
+version = "1.0.7"
 description = "Add (mutiple) aliases to a click group or command"
 authors = ["Robbin Bonthond <robbin@bonthond.com>"]
 readme = "README.md"
@@ -10,6 +10,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.7"
 click = "^8.1.7"
+importlib-metadata = { version = ">=1,<7", python = "<3.8" }
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
@@ -38,6 +39,6 @@ max-line-length = 120
 
 [tool.ruff]
 select = ["E", "W", "I", "F", "C4", "RET", "SIM", "PLE", "UP"]
-target-version = "py311"
+target-version = "py37"
 line-length = 120
 #ignore = ["F401"]
